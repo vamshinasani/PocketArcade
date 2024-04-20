@@ -2,7 +2,6 @@ import { useState } from 'react'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./DotsAndConnect.css"
 function DotsAndConnect() {
-    // document.body.style.background = "Red"
     let [boardSize, setBoardSize] = useState(5)
     let [player, setPlayer] = useState("Blue");
     let [scores, setScores] = useState({ Blue: 0, Red: 0 })
