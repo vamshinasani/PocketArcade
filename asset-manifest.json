@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/PocketArcade/static/css/main.77f2394a.css",
-    "main.js": "/PocketArcade/static/js/main.25ae7d42.js",
+    "main.js": "/PocketArcade/static/js/main.54eba024.js",
     "static/js/453.d3e760a5.chunk.js": "/PocketArcade/static/js/453.d3e760a5.chunk.js",
     "index.html": "/PocketArcade/index.html",
     "main.77f2394a.css.map": "/PocketArcade/static/css/main.77f2394a.css.map",
-    "main.25ae7d42.js.map": "/PocketArcade/static/js/main.25ae7d42.js.map",
+    "main.54eba024.js.map": "/PocketArcade/static/js/main.54eba024.js.map",
     "453.d3e760a5.chunk.js.map": "/PocketArcade/static/js/453.d3e760a5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.77f2394a.css",
-    "static/js/main.25ae7d42.js"
+    "static/js/main.54eba024.js"
   ]
 }
