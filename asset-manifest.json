@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/PocketArcade/static/css/main.77f2394a.css",
-    "main.js": "/PocketArcade/static/js/main.41384a79.js",
-    "static/js/453.d3e760a5.chunk.js": "/PocketArcade/static/js/453.d3e760a5.chunk.js",
-    "index.html": "/PocketArcade/index.html",
-    "main.77f2394a.css.map": "/PocketArcade/static/css/main.77f2394a.css.map",
-    "main.41384a79.js.map": "/PocketArcade/static/js/main.41384a79.js.map",
-    "453.d3e760a5.chunk.js.map": "/PocketArcade/static/js/453.d3e760a5.chunk.js.map"
+    "main.css": "/static/css/main.77f2394a.css",
+    "main.js": "/static/js/main.ef6e3891.js",
+    "static/js/453.d3e760a5.chunk.js": "/static/js/453.d3e760a5.chunk.js",
+    "index.html": "/index.html",
+    "main.77f2394a.css.map": "/static/css/main.77f2394a.css.map",
+    "main.ef6e3891.js.map": "/static/js/main.ef6e3891.js.map",
+    "453.d3e760a5.chunk.js.map": "/static/js/453.d3e760a5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.77f2394a.css",
-    "static/js/main.41384a79.js"
+    "static/js/main.ef6e3891.js"
   ]
 }
