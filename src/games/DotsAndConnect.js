@@ -67,10 +67,10 @@ function DotsAndConnect() {
                         currentscores[currentPlayer] += 1
                         setScores({ ...scores, currentPlayer: scores[currentPlayer] + 1 })
                         document.getElementById("plain" + i + j).style.backgroundColor = currentPlayer;
-                        document.getElementById("bar" + (i+1) + j).style.backgroundColor = "black";
-                        document.getElementById("bar" + i + (j+1)).style.backgroundColor = "black";
-                        document.getElementById("bar" + (i-1) + j).style.backgroundColor = "black";
-                        document.getElementById("bar" + i + (j-1)).style.backgroundColor = "black";
+                        document.getElementById("bar" + (i + 1) + j).style.backgroundColor = "black";
+                        document.getElementById("bar" + i + (j + 1)).style.backgroundColor = "black";
+                        document.getElementById("bar" + (i - 1) + j).style.backgroundColor = "black";
+                        document.getElementById("bar" + i + (j - 1)).style.backgroundColor = "black";
                         playerScored = true;
                     }
                 }
@@ -107,49 +107,50 @@ function DotsAndConnect() {
         <div className='gameBody'>
             {(!isGameOver) ? <div>
                 <h1 className='my-3'>DOTS AND CONNECT</h1>
-                <p><h4>BOARD SIZE </h4>
-                    <button className='btn btn-success mx-2' onClick={() => loadNewBoard(5)}>5 X 5</button>
-                    <button className='btn btn-warning mx-2' onClick={() => loadNewBoard(9)}>9 X 9</button>
-                    <button className='btn btn-danger mx-2' onClick={() => loadNewBoard(11)}>11 X 11</button>
-                </p>
+                <h4>BOARD SIZE </h4>
+                <button className='btn btn-success mx-2' onClick={() => loadNewBoard(5)}>5 X 5</button>
+                <button className='btn btn-warning mx-2' onClick={() => loadNewBoard(9)}>9 X 9</button>
+                <button className='btn btn-danger mx-2' onClick={() => loadNewBoard(11)}>11 X 11</button>
                 <div className='d-flex justify-content-around align-items-center m-5'>
                     <div className='d-block m-5'><h1 className='text-primary'>BLUE</h1><h1>{scores?.Blue}</h1></div>
                     <div>
                         {playBoard.map((row, rowidx) => {
                             if (rowidx % 2 === 0) {
-                                return <div className='boardrow'>
+                                return (<div className='boardrow' key={"row" + rowidx}>
                                     {row.map((ele, colidx) => {
                                         if (colidx % 2 === 0)
-                                            return (<button className='dot'></button>)
+                                            return (<button key={'bar' + rowidx + colidx} className='dot'></button>)
                                         return (<button className='horbar' id={'bar' + rowidx + colidx}
+                                            key={'bar' + rowidx + colidx}
                                             onMouseOver={() => changeColor(rowidx, colidx, 'bar' + rowidx + colidx)}
                                             onMouseOut={() => revertColor(rowidx, colidx, 'bar' + rowidx + colidx)}
                                             onClick={() => playerMove(rowidx, colidx, 'bar' + rowidx + colidx)}></button>)
                                     })}
-                                </div>
+                                </div>)
                             }
                             else {
-                                return <div className='boardrow'>
+                                return (<div className='boardrow' key={"row" + rowidx}>
                                     {row.map((ele, colidx) => {
                                         if (colidx % 2 === 0)
                                             return (<button className='verbar'
+                                                key={'bar' + rowidx + colidx}
                                                 id={'bar' + rowidx + colidx}
                                                 onMouseOver={() => changeColor(rowidx, colidx, 'bar' + rowidx + colidx)}
                                                 onMouseOut={() => revertColor(rowidx, colidx, 'bar' + rowidx + colidx)}
                                                 onClick={() => playerMove(rowidx, colidx, 'bar' + rowidx + colidx)}></button>)
-                                        return (<button className='plain' id={'plain' + rowidx + colidx}></button>)
+                                        return (<button className='plain' key={'plain' + rowidx + colidx} id={'plain' + rowidx + colidx}></button>)
                                     })}
-                                </div>
+                                </div>)
                             }
                         })}
                     </div>
                     <div className='d-block m-5'><h1 className='text-danger'>RED</h1><h1>{scores?.Red}</h1></div>
                 </div>
-            </div> : (winner === "RED" || winner === "BLUE") ? 
-            <div>
-                <h2 className='breathe'>{winner} IS THE WINNER !</h2>
-                <p onClick={()=>resetGame()}>click here to return</p>
-            </div> : <div><h2 className='breathe'>DRAW !</h2> <p onClick={()=>resetGame()}>click here to return</p></div>}
+            </div> : (winner === "RED" || winner === "BLUE") ?
+                <div>
+                    <h2 className='breathe'>{winner} IS THE WINNER !</h2>
+                    <p onClick={() => resetGame()}>click here to return</p>
+                </div> : <div><h2 className='breathe'>DRAW !</h2> <p onClick={() => resetGame()}>click here to return</p></div>}
         </div>
     )
 }
