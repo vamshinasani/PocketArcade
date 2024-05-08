@@ -1,6 +1,5 @@
 {
   "name": "pocketarcade",
-  "homepage": "https://vamshinasani.github.io/pocketarcade",
   "version": "0.1.0",
   "private": false,
   "dependencies": {

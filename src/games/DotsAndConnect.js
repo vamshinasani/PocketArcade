@@ -112,15 +112,20 @@ function DotsAndConnect() {
                 <button className='btn btn-warning mx-2' onClick={() => loadNewBoard(9)}>9 X 9</button>
                 <button className='btn btn-danger mx-2' onClick={() => loadNewBoard(11)}>11 X 11</button>
                 <div className='d-flex justify-content-around align-items-center m-5'>
-                    <div className='d-block m-5'><h1 className='text-primary'>BLUE</h1><h1>{scores?.Blue}</h1></div>
+                    <div className='d-block m-5'>
+                        {player === "Blue" ? <button className='bg-primary turnbar'></button> : <button className='bg-transparent turnbar'></button>}
+                        <h1 className='text-primary'>BLUE</h1>
+                        <h1>{scores?.Blue}</h1>
+                    </div>
                     <div>
                         {playBoard.map((row, rowidx) => {
                             if (rowidx % 2 === 0) {
                                 return (<div className='boardrow' key={"row" + rowidx}>
                                     {row.map((ele, colidx) => {
                                         if (colidx % 2 === 0)
-                                            return (<button key={'bar' + rowidx + colidx} className='dot'></button>)
+                                            return (<button key={'bar' + rowidx + colidx} className='dot' title='dot'></button>)
                                         return (<button className='horbar' id={'bar' + rowidx + colidx}
+                                            title='horizontalBar'
                                             key={'bar' + rowidx + colidx}
                                             onMouseOver={() => changeColor(rowidx, colidx, 'bar' + rowidx + colidx)}
                                             onMouseOut={() => revertColor(rowidx, colidx, 'bar' + rowidx + colidx)}
@@ -133,24 +138,33 @@ function DotsAndConnect() {
                                     {row.map((ele, colidx) => {
                                         if (colidx % 2 === 0)
                                             return (<button className='verbar'
+                                                title='verticalBar'
                                                 key={'bar' + rowidx + colidx}
                                                 id={'bar' + rowidx + colidx}
                                                 onMouseOver={() => changeColor(rowidx, colidx, 'bar' + rowidx + colidx)}
                                                 onMouseOut={() => revertColor(rowidx, colidx, 'bar' + rowidx + colidx)}
                                                 onClick={() => playerMove(rowidx, colidx, 'bar' + rowidx + colidx)}></button>)
-                                        return (<button className='plain' key={'plain' + rowidx + colidx} id={'plain' + rowidx + colidx}></button>)
+                                        return (<button className='plain' title="plain" key={'plain' + rowidx + colidx} id={'plain' + rowidx + colidx}></button>)
                                     })}
                                 </div>)
                             }
                         })}
                     </div>
-                    <div className='d-block m-5'><h1 className='text-danger'>RED</h1><h1>{scores?.Red}</h1></div>
+                    <div className='d-block m-5'>
+                        {player === "Red" ? <button className='bg-danger turnbar'></button> : <button className='bg-transparent turnbar'></button>}
+                        <h1 className='text-danger'>RED</h1>
+                        <h1>{scores?.Red}</h1>
+                    </div>
                 </div>
             </div> : (winner === "RED" || winner === "BLUE") ?
                 <div>
                     <h2 className='breathe'>{winner} IS THE WINNER !</h2>
                     <p onClick={() => resetGame()}>click here to return</p>
-                </div> : <div><h2 className='breathe'>DRAW !</h2> <p onClick={() => resetGame()}>click here to return</p></div>}
+                </div> : <div>
+                    <h2 className='breathe'>DRAW !</h2>
+                    <p onClick={() => resetGame()}>click here to return</p>
+                </div>
+            }
         </div>
     )
 }

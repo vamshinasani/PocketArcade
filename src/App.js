@@ -2,15 +2,19 @@ import './App.css';
 import TicTacToe from './games/TicTacToe';
 import DotsAndConnect from './games/DotsAndConnect';
 import Home from './games/Home';
-import { Route, Routes } from 'react-router-dom';
+import Root from './games/Root';
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 
 function App() {
-  return (
-      <Routes>
-        <Route path='/' element={<Home />} />
+  const routes = createBrowserRouter(createRoutesFromElements(
+    <Route path='/' element={<Root/>}>
+        <Route index element={<Home />} />
         <Route path='/tictactoe' element={<TicTacToe />} />
         <Route path='/dotsandconnect' element={<DotsAndConnect />} />
-      </Routes>
+      </Route>
+  ))
+  return (
+      <RouterProvider router={routes}></RouterProvider>
   );
 }
 
